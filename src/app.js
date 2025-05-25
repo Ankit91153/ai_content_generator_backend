@@ -14,6 +14,10 @@ app.use(express.static("public"))
 app.use(cookieParser())
 
 
+// ➕ Add a ping route to keep DB/server awake
+app.get("/ping", (req, res) => {
+    res.status(200).json({ success: true, message: "Server is live!" })
+})
 
 //routes import
 import userRouter from './routes/user.route.js'
